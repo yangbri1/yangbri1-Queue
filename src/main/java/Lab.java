@@ -1,3 +1,4 @@
+import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Queue;
 
@@ -36,7 +37,10 @@ public class Lab {
      * Stack behavior.
      */
     public Deque<String> createQueue(){
-        return null;
+        // instantiate a Deque<String>
+        Deque<String> deque = new ArrayDeque<>();   // ArrayDeque could fill role of both Queues (FIFO) & stacks, Deque can remove from front or back
+        // return instantiated Deque
+        return deque;
     }
 
     /**
@@ -45,7 +49,8 @@ public class Lab {
      * @return the length of queue.
      */
     public int getSize(Queue<String> queue){
-        return 0;
+        // call .size() to return size of Queue -- FIFO
+        return queue.size();
     }
 
     /**
@@ -55,7 +60,8 @@ public class Lab {
      * @param item a String that should be added to Queue.
      */
     public void addToEndOfQueue(Queue<String> queue, String item){
-
+        // call .add() method to add item to end of Queue (FIFO)
+        queue.add(item);
     }
 
     /**
@@ -65,7 +71,9 @@ public class Lab {
      * @return the next String due to be removed (polled) from the Queue<String> (the oldest item in the queue.)
      */
     public String removeFromStartOfQueue(Queue<String> queue){
-        return "";
+        // .poll() extracts head of Queue (DN throw Exception if Queue is empty)
+        // .remove() extracts head of Queue(will throw NoSuchElementException if Queue is empty)
+        return queue.remove();
     }
 
     /**
@@ -75,6 +83,7 @@ public class Lab {
      * @return the next String due to be removed (peeked) from the Queue<String> (the oldest item in the queue.)
      */
     public String getStartOfQueueWithoutRemoving(Queue<String> queue){
-        return "";
+        // .peek() at next element in Queue to be remove (but DN remove it)
+        return queue.peek();
     }
 }
